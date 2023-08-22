@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>图库传输图片</title>
+    <script>
+        function uploadImage() {
+            var input = document.getElementById("imageInput");
+            var file = input.files[0];
+
+            var formData = new FormData();
+            formData.append("image", file);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://101.43.61.192:8080/do_login2/", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // 图片上传成功
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(formData);
+			alert('yi')
+        }
+    </script>
+</head>
+<body>
+    <input type="file" id="imageInput">
+    <button onclick="uploadImage()">上传图片</button>
+</body>
+</html>

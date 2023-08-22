@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <link rel="stylesheet" type="text/css" href="./css/register.css">
+  <link rel="stylesheet" type="text/css" href="./css/nav.css">
+  <link rel="stylesheet" type="text/css" href="./css/change.css">
+  <link rel="stylesheet" type="text/css" href="./css/home.css">
+  <link rel="stylesheet" type="text/css" href="./css/theme.css">
+  <link rel="stylesheet" type="text/css" href="./css/check.css">
+
+</head>
+  <body id="body" class="theme9" style="overflow: hidden;">
+
+    <!-- 主页 -->
+    <div id="home" name="page">
+      <h1 style="background-color: skyblue; margin: 0;">多模态人脸识别home</h1>
+      <hr>
+      <!-- 顶部轮播图 -->
+	<div class="slideshow-container">
+	   <div class="slide">
+		 <img src="./img/l1.png" alt="Image 1">
+	   </div>
+	   <div class="slide">
+		 <img src="./img/l2.png" alt="Image 2">
+	   </div>
+	   <div class="slide">
+		 <img src="./img/l3.png" alt="Image 3">
+	   </div>
+	 </div>
+      <!-- 管理人员名单 -->
+      <div id="managers" class="table-container">
+
+      </div>
+    </div>
+
+ 
+    <!-- 查询页 -->
+    <div id="check" name="page" class="hide">
+		<h1 style="background-color: skyblue; margin: 0;">多模态人脸识别查询</h1>
+		<hr>
+		<!-- 查询结果页面 -->
+		<div id="res" style="margin-top: 20px; " class="hide">
+			<div style="margin-left:20px ;">
+				<button onclick="back()" style="width: 20%;height: auto;background-color: white;">返回</button>
+			</div>
+			<canvas id="myCanvas"></canvas> 
+			<!-- 查询后结果存放 -->
+			<div id='chart' class="check_table-container">
+				
+			</div>
+		  <!-- 此处用来装载返回元素，在js文件中设计添加 -->
+		  <!-- {"2023-07-30 13:56:10": "67295183", "2023-07-31 15:32:03": "67295183", "2023-07-31 15:37:19": "67295183"} -->
+		</div>
+      <div class="tab_Content" style="margin-top: 20vh;" id='check_bef_box'>
+        
+        <input type="radio" class="hide" name="tab_list" id="tab_list1" checked />
+        <input type="radio" class="hide" name="tab_list" id="tab_list2" />
+		<input type="radio" class="hide" name="tab_list" id="tab_list3" />
+		<input type="radio" class="hide" name="tab_list" id="tab_list4" />
+        <!-- 此处为更改功能名 -->
+        <label for="tab_list1">查询ID权限</label>
+        <label for="tab_list2">查询个人记录</label>
+		<label for="tab_list3">查询全部记录</label>
+		<label for="tab_list4">查询造假记录</label>
+        <ul>
+          <li>
+              <!-- 查询前 -->
+            <form id="ask1">
+              <div class="check">
+                <h2 style="color: white;">查询ID权限</h2>
+                <div class="check_box">
+                  <input type="text" id="id1" class="input_text"  required placeholder="用户ID"/>
+                </div>
+
+                <div style="text-align: center">
+                    <input type="button" name="check_button" value="点击查询" class="btn" onclick="check_per()">
+                </div>
+              </div>
+
+            </form>
+
+          </li>
+          <li>
+            <!-- 查询前 -->
+            <form id="ask2">
+              <div class="check">
+                <h2 style="color: white;">查询个人记录</h2>
+                <div class="check_box">
+                  <input type="text" id="id2" class="input_text"  required placeholder="用户ID"/>
+                </div>
+                <div>
+                
+                  <p style="color: white; ">查询
+                    <select name="" id="time2">
+                        <option value="1h">1小时</option>
+                        <option value="3h">3小时</option>
+                        <option value="1d">1日</option>
+                        <option value="3d">3日</option>
+                        <option value="1w">1周</option>
+                        <option value="1m">1个月</option>
+                        <option value="3m">3个月</option>
+                        <option value="1y">1年</option>
+                    </select>
+                    内的通行记录
+                  </p>
+                </div>
+                <div style="text-align: center">
+                    <input type="button" name="check_button" value="点击查询" class="btn" onclick="check_record()">
+                </div>
+              </div>
+
+            </form>
+              
+
+            
+          </li>
+		  
+		  <li>
+		    <!-- 查询前 -->
+		    <form id="ask3">
+		      <div class="check">
+		        <h2 style="color: white;">查询全部记录</h2>
+		        <div>
+		        <br>
+		          <p style="color: white;">查询
+		            <select name="" id="time3">
+		                <option value="1h">1小时</option>
+		                <option value="3h">3小时</option>
+		                <option value="1d">1日</option>
+		                <option value="3d">3日</option>
+		                <option value="1w">1周</option>
+		                <option value="1m">1个月</option>
+		                <option value="3m">3个月</option>
+		                <option value="1y">1年</option>
+		            </select>
+		            内的通行记录
+		          </p>
+		        </div>
+		        <div style="text-align: center">
+		            <input type="button" name="check_button" value="点击查询" class="btn" onclick="check_all_record()">
+		        </div>
+		      </div>
+		  
+		    </form>
+		     
+		  
+		    
+		  </li>
+		  <li>
+		    <!-- 查询前 -->
+		    <form id="ask4">
+		      <div class="check">
+		        <h2 style="color: white;">查询造假记录</h2>
+		        <div>
+		        
+		          <p style="color: white; ">查询
+		            <select name="" id="time2">
+		                <option value="1h">1小时</option>
+		                <option value="3h">3小时</option>
+		                <option value="1d">1日</option>
+		                <option value="3d">3日</option>
+		                <option value="1w">1周</option>
+		                <option value="1m">1个月</option>
+		                <option value="3m">3个月</option>
+		                <option value="1y">1年</option>
+		            </select>
+		            内的造假记录
+		          </p>
+		        </div>
+		        <div style="text-align: center">
+		            <input type="button" name="check_button" value="点击查询" class="btn" onclick="check_record4()">
+		        </div>
+		      </div>
+			
+		    </form>
+		      
+		  
+		    
+		  </li>
+        </ul> 
+		  </div>
+    </div>
+    <!-- 更改页 -->
+    <div id="change" name="page" class="hide" style="text-align: center">
+		<h1 style="background-color: skyblue; margin: 0;">多模态人脸识别更改</h1>
+		<hr>
+      <!-- 此处为原展示框代码 -->
+      <div class="form_ show" id="form_" style="margin-top: 20vh;">
+        <form method="post">
+          <div class="change">
+            <h2>更改通过位置</h2>
+            <div class="change_box">
+              <input type="text" id="change_id" required /><label>待更改用户id</label>
+            </div>
+            <p style="color: white;">请选择更改通过位置：
+              <select name="permission" id="permission">
+                  <option value="虹桥小区东门">虹桥小区东门</option>
+				  <option value="华府小区西门">华府小区西门</option>
+				  <option value="华府小区南门">华府小区南门</option>
+				  <option value="丽诗趣苑北门">丽诗趣苑北门</option>
+				  <option value="丽诗趣苑正门">丽诗趣苑正门</option>
+                  <option value="禁止">禁止</option>
+              </select>
+            </p>
+            <input type="button" value="重置" class="btn" id="clear" onclick="formReset()">
+            <input type="button" value="更改" class="btn" id="permission_changer" onclick="create()">
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <!-- 注册页 -->
+    <div id="register" name="page" class="hide" style="margin-left: auto; margin-right: auto; ">
+		<h1 style="background-color: skyblue; margin: 0;">多模态人脸识别注册</h1>
+		<hr >
+      <form method="post" style="margin-top: 15vh;">
+        <div class="regist">
+            <h2> 
+                用户注册    
+            </h2> 
+            
+            <p style="color: white;">请选择注册位置：
+              <select name="reg_permission" id="reg_permission">
+                  <option value="虹桥小区东门">虹桥小区东门</option>
+                  <option value="华府小区西门">华府小区西门</option>
+                  <option value="华府小区南门">华府小区南门</option>
+                  <option value="丽诗趣苑北门">丽诗趣苑北门</option>
+                  <option value="丽诗趣苑正门">丽诗趣苑正门</option>
+              </select>
+            </p>
+			<div class='image' style="margin-bottom:2vh ;">
+				<h4 style="color: aliceblue; width: 100%; text-align: center;">以下请输入人脸图像</h4>
+				<input type="file" id="imageInput" accept="image/*" capture onchange="showPreview()" >
+				
+			</div>
+			<div id='previewContainer' class="image-preview hide" > 
+				
+			</div> 
+            <input type="button" name="reg_button" class="btn" value="确认注册">
+        </div> 
+      </form>
+    </div>
+    <!-- 关于页 -->
+    <div id="info" name="page" class="hide">
+		<h1 style="background-color: skyblue; margin: 0;">多模态人脸识别INFO</h1>
+		<hr>
+		
+		<div name="switch_theme" id="switch_theme" class="theme" style="margin-top: 5vh;">
+			<h2 style="color: white;">切换主题</h2>
+			
+			<div class="double">
+				<p class="theme1">
+					<input type="radio" name="theme" value="theme1" class="theme1"  id="theme1" onclick="getSelectedValue()">
+					<label for="theme1">极简</label>
+				</p>
+				<p class="theme2">
+					<input type="radio" name="theme" value="theme2"  id="theme2" onclick="getSelectedValue()">
+					<label for="theme2">遨游宇宙</label>
+				</p>
+			</div>
+			<div class="double">
+				<p class="theme3">
+					<input type="radio" name="theme" value="theme3"  id="theme3" onclick="getSelectedValue()">
+					<label for="theme3">迷幻</label>
+				</p>
+				<p class="theme4"> 
+					
+					<input type="radio" name="theme" value="theme4"  id="theme4" onclick="getSelectedValue()">
+					<label for="theme4">浅彩虹</label>
+				</p>
+			</div>
+			<div class="double">
+				<p class="theme5">
+					<input type="radio" name="theme" value="theme5"  id="theme5" onclick="getSelectedValue()">
+					<label for="theme5">千帆看尽</label>
+				</p>
+				<p class="theme6">
+					<input type="radio" name="theme" value="theme6"  id="theme6" onclick="getSelectedValue()">
+					<label for="theme6">向云端</label>
+				</p>
+			</div>
+			<div class="double">
+				<p class="theme7">
+					<input type="radio" name="theme" value="theme7"  id="theme7" onclick="getSelectedValue()">
+					<label for="theme7">梦幻</label>
+				</p>
+				<p class="theme8">
+					<input type="radio" name="theme" value="theme8"  id="theme8" onclick="getSelectedValue()">
+					<label for="theme8">青春棱角</label>
+				</p>
+			</div>
+			<div class="double">
+				<p class="theme9">
+					<input type="radio" name="theme" value="theme9" checked id="theme9" onclick="getSelectedValue()">
+					<label for="theme9">油画</label>
+				</p>
+				<p class="theme10">
+					<input type="radio" name="theme" value="theme10"  id="theme10" onclick="getSelectedValue()">
+					<label for="theme10">微暖夜色</label>
+				</p>
+			</div>
+			<div class="double">
+				<p class="theme11">
+					<input type="radio" name="theme" value="theme11"  id="theme11" onclick="getSelectedValue()">
+					<label for="theme11">琉璃</label>
+				</p>
+				<p class="theme10">
+					<input type="radio" name="theme" value="theme12"  id="theme12" onclick="getSelectedValue()">
+					<label for="theme12">登峰</label>
+				</p>
+			</div>
+		</div>
+		<div id='info_box'>
+			<div id="info_hide">
+				隐私保护政策
+			</div>
+			<div style="overflow-wrap: break-word; overflow: auto;">
+				<p>
+					我们非常重视用户的隐私保护，并致力于确保您的个人信息安全。在使用我们的人脸识别服务之前，请仔细阅读以下隐私保护政策须知，以了解我们如何收集、使用和保护您的个人信息。
+				</p>	
+				<p>
+					信息收集： 我们可能会收集和存储您的人脸图像和相关信息，以便进行人脸识别服务。这些信息可能包括您的面部特征、面部表情等。我们仅收集您明确授权并提供的信息，并且仅在提供服务所必需的范围内使用。
+				</p>
+				<p>
+					信息使用： 我们收集的人脸信息将仅用于提供人脸识别服务，并且不会用于任何其他目的，除非您事先同意或法律另有规定。我们不会将您的个人信息出售、出租或交易给任何第三方。
+					
+				</p>	
+				<p>
+					信息保护： 我们采取合理的安全措施来保护您的个人信息免遭未经授权的访问、使用或泄露。我们使用加密技术、访问控制和其他安全措施来保护您的信息。我们仅允许有授权访问权限的员工接触您的个人信息，并要求他们对信息保密。
+					
+				</p>
+				<p>
+					信息存储： 我们将在符合法律法规要求的期限内保留您的个人信息。一旦达到保留期限，我们将采取合理的措施安全地销毁或匿名化您的个人信息。
+					
+				</p>	
+				<p>
+					共享和披露： 我们不会未经您的明确同意向任何第三方共享您的个人信息，除非法律要求或为了提供所请求的服务而必要。
+					
+				</p>
+				<p>
+					Cookie和跟踪技术： 我们的网站可能使用Cookie和其他跟踪技术来提供个性化的用户体验。这些技术可能会收集一些匿名的信息，但不会涉及您的个人身份信息。
+					
+				</p>
+				<p>
+						请注意，尽管我们采取了合理的安全措施来保护您的个人信息，但由于互联网的开放性，我们无法保证信息的绝对安全。
+					
+					通过使用我们的人脸识别服务，即表示您同意本隐私保护政策须知中所述的信息收集、使用和保护方式。如果您不同意本政策，请不要使用我们的服务。
+					
+					我们保留随时修改本隐私保护政策须知的权利。任何修改将在本页面上发布，并在生效前通知您。建议您定期查看本政策以了解最新的隐私保护措施。
+					
+					如果您对本隐私保护政策须知有任何疑问或需要进一步的信息，请联系我们提供的联系方式。
+				
+				</p>
+				<p>
+					开发者联系方式：qq：2934158286
+					
+				</p>
+			</div>
+			
+			
+		</div>
+    </div>
+
+
+
+    <!-- 底部导航栏 -->
+    <div class="navbar">
+      <a id="page1" href="#home" class="active">
+        <div id="page1_div"><img id="page1_icon" data-cover="2" src="./img/home_FILL1_wght400_GRAD0_opsz48.svg"></div>
+      </a>
+      <a id="page2" href="#check">
+        <div id="page2_div"><img id="page2_icon" data-cover="0" src="./img/manage_search_FILL1_wght400_GRAD0_opsz48-grey.svg"></div>
+      </a>
+      <a id="page3" href="#change">
+        <div id="page3_div"><img id="page3_icon" data-cover="0" src="./img/edit_FILL0_wght400_GRAD0_opsz48.svg"></div>
+      </a>
+      <a id="page4" href="#register">
+        <div id="page4_div"><img id="page4_icon" data-cover="0" src="./img/person_add_FILL0_wght400_GRAD0_opsz48.svg" ></div>
+      </a>
+      <a id="page5" href="#info">
+        <div id="page5_div"><img id="page5_icon" data-cover="0" src="./img/info_FILL0_wght400_GRAD0_opsz48.svg"></div>
+      </a>
+    </div>
+    <script src="./js/sha1.js"></script>
+    <script src="./js/home.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/crypto-js.js"></script>
+    <script src="./js/sm2.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/check.js"></script>
+    <script src="./js/change.js"></script>
+    <script src="./js/register.js"></script>
+  </body>
+</html>
