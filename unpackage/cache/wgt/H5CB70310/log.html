@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>多模态人脸识别-登录界面</title>
+    <link rel="stylesheet" href="./css/log.css">
+    <link rel="stylesheet" type="text/css" href="./css/low.css">
+</head>
+<body style="overflow: hidden;">
+    
+    <hr>
+    <form method="post">
+        <div class="login">
+            <h2>
+                管理员登录界面
+            </h2>
+            <div class="login_box">
+                <input type="text" id="Log_name" name="log_name"  required /><label>用户ID</label>
+            </div>
+            <div class="login_box">
+                <input type="password" id="Log_password" name="l_pwd" required="required" /><label>密码</label>
+            </div>
+            <input type="button" name="root_button" class="btn" value="管理员登录">
+        </div>
+    </form>
+    <script src="./js/sha1.js"></script>
+    <script src="./js/crypto-js.js"></script>
+    <script src="./js/sm2.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/log.js"></script>    
+</body>
+</html>

@@ -1,0 +1,32 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color:white;
+    opacity: 0.6;
+    overflow: hidden;
+  }
+  
+  .navbar a {
+    height: auto;
+    width: 25%;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .navbar a:hover {
+    background-color: #ddd;
+    color: rgb(48, 90, 181);
+  }
+  
+  .navbar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .hide{
+    display: none;
+  }
+  

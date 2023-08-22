@@ -1,0 +1,86 @@
+.theme {
+    border-radius: 10%;
+    /* 弹性布局 让子元素称为弹性项目 */
+    display: flex;
+    /* 让弹性项目垂直排列 原理是改变弹性盒子的主轴方向 父元素就是弹性盒子 现在改变后的主轴方向是向下了 */
+    flex-direction: column;
+    /* 让弹性项目在交叉轴方向水平居中 现在主轴的方向是向下 交叉轴的方向是与主轴垂直 交叉轴的方向是向右 */
+    align-items: center;
+    width: 96%;
+	margin-left: 2%;
+	margin-right: 2%;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+.theme p{
+	float: right;
+	border-radius: 20% ;
+	width: 30%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+#info_hide{
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: sticky;
+	align-content: center;
+	top: 0;
+}
+#info_box{
+	margin: 2%;
+	width: 96%; 
+	padding: 0%;
+	background-color: rgba(0, 0, 0, 0.1);
+	height: 20vh; 
+	overflow: auto;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+	border-radius: 5% ;
+	margin-top:5vh;
+}
+.double label{
+	width: 100%;
+}
+.theme1 {
+	
+    background-color: azure;
+}
+
+.theme2 {
+    background-image: url('../img/h.png');}
+
+.theme3 {
+    background-image: url('../img/i.png');}
+
+.theme4 {
+    background: #f7f0ac; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom right, #f0acf7, #acf7f0, #f7f0ac); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom right, #f0acf7, #acf7f0, #f7f0ac); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.theme5 {
+    background-image: url('../img/f.png');
+}
+
+.theme6 {
+    background-image: url('../img/e.png');}
+
+.theme7 {
+    background-image: url('../img/d.png');
+	}
+
+.theme8 {
+    background-image: url('../img/c.png');
+}
+
+.theme9 {
+    background-image: url('../img/b.png');
+    
+}
+.theme10{
+	/* background-color: #ffff7f; */
+	background-image: url('../img/a.png');
+}
+.double{
+	margin-top: 1vh;
+	width: 100%;
+}
